@@ -1,7 +1,5 @@
 <?php
 
-//this is a test
-
 // SANITIZE
 $name = $_POST['name'];
 $newName = filter_var($name, FILTER_SANITIZE_STRING);
