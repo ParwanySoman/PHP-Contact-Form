@@ -1,0 +1,28 @@
+version: "3"
+services:
+    php:
+        image: becodeorg/php
+        volumes:
+            - ./src:/var/www/html/
+        ports:
+            - "8000:80"
+    mysql:
+        image: mysql:5
+        restart: always
+        volumes:
+            - mysql_db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: contact
+            MYSQL_USER: note
+            MYSQL_PASSWORD: note
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        ports:
+            - "8001:80"
+        environment:
+            PMA_HOST: mysql
+            PMA_USER: note
+            PMA_PASSWORD: note
+volumes:
+    mysql_db:
