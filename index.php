@@ -3,15 +3,12 @@
 // SANITIZE
 $name = $_POST['name'];
 $newName = filter_var($name, FILTER_SANITIZE_STRING);
-echo $newName;
 
 $email = $_POST['email'];
 $newEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
-echo $newEmail;
 
 $comment = $_POST['comment'];
 $newComment = filter_var($comment, FILTER_SANITIZE_STRING);
-echo $newComment;
 
 // VALIDATE
 
@@ -33,6 +30,9 @@ if (empty($newComment)) {
 }
 
 // EXECUTION
+if (count($error) <= 0) {
+    require 'phpmailer.php';
+}
 
 // FEEDBACK
 
